@@ -35,17 +35,19 @@ app.post('/upload', upload.single('upload'), (req, res) => {
       var limit = data.toString().split("limit")[data.toString().split("limit").length-1]
       console.log("Limit is ",limit)
       console.log(data.toString())
-      var imgArray = []
+      python.stdout.on('close', function (code) {
+        console.log('Closed with code ',code)
+        var imgArray = []
         for(var i=0;i<limit;i++){
           imgArray.push("output/"+i+".jpeg")
         }
         console.log(imgArray)
         res.render('pages/image',{data: "output/0.jpeg",imgs:imgArray});
 
+      })
+      
     })
-    // python.stdout.on('close', function (code) {
-    //     console.log('Closed with code ',code)
-    //   })
+    
     
   }else{
     res.status(400).json({msg:"Img Not Received"})
