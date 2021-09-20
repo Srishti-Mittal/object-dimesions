@@ -36,14 +36,14 @@ app.post('/upload', upload.single('upload'), (req, res) => {
     })
     
       python.on('close', function (code) {
-        // console.log("OP",output.toString(),"end")
+        console.log("Output ",output.toString(),"end")
         console.log("Code is",code)
         var limit = output.toString().split("limit")[output.toString().split("limit").length-1]
       console.log("Limit is",typeof(limit),parseInt(limit))
         var imgArray = []
         for(var i=0;i<parseInt(limit);i++){
           imgArray.push("output/"+i+".jpeg")
-        }
+        } 
         console.log(imgArray)
         res.render('pages/image',{data: "output/0.jpeg",imgs:imgArray});
 
