@@ -10,6 +10,7 @@ This project calculates the size of objects based on a given reference object.It
 ## Live Link
 https://object-dimensions-srishti.herokuapp.com/
 ## Input Interface
+![Input_Interface](input_interface.jpeg)
 ## Input
 ![Input](input.jpeg)
 ## Output
