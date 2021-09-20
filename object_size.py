@@ -20,6 +20,8 @@ os.rename(oldname,imagePath)
 
 widthInput = sys.argv[2]
 
+print("starting")
+
 # load the image, convert it to grayscale, and blur it slightly
 image = cv2.imread(imagePath)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -41,6 +43,7 @@ cnts = imutils.grab_contours(cnts)
 (cnts, _) = contours.sort_contours(cnts)
 pixelsPerMetric = None
 i=0
+print("before loop")
 # loop over the contours individually
 for c in cnts:
 	# if the contour is not sufficiently large, ignore it
@@ -114,6 +117,8 @@ for c in cnts:
 	cv2.imwrite("public/output/"+str(i)+".jpeg",orig)
 	i=i+1
 	# cv2.imshow("Image", orig)
+	print(i,"th image done")
 	cv2.waitKey(0)
 os.remove(imagePath)
+print("limit")
 print(i)
