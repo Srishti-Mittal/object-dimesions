@@ -28,22 +28,20 @@ app.post('/upload', upload.single('upload'), (req, res) => {
   if(req.file){
     console.log("File name",req.file.filename)
     const python = spawn('python', ['object_size.py',`data/`+req.file.filename,4])
-    let output;
+    var output="";
     python.stdout.on('data', function (data) {
-      console.log('Pipe data from python script ...')
+      // console.log('Pipe data from python script ...')
       // output+=data
-      output = data
+      output+= data
     })
     
-      python.stdout.on('close', function (code) {
+      python.on('close', function (code) {
         // console.log("OP",output.toString(),"end")
+        console.log("Code is",code)
         var limit = output.toString().split("limit")[output.toString().split("limit").length-1]
-      console.log(limit)
-      // console.log("Limit is ",limit)
-
-        // console.log('Closed with code ',code)
+      console.log("Limit is",typeof(limit),parseInt(limit))
         var imgArray = []
-        for(var i=0;i<limit;i++){
+        for(var i=0;i<parseInt(limit);i++){
           imgArray.push("output/"+i+".jpeg")
         }
         console.log(imgArray)
