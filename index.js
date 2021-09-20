@@ -45,7 +45,7 @@ app.post('/upload', upload.single('upload'), (req, res) => {
           imgArray.push("output/"+i+".jpeg")
         } 
         console.log(imgArray)
-        res.render('pages/image',{data: "output/0.jpeg",imgs:imgArray});
+        res.render('pages/image',{data: "output/0.jpeg",imgs:[ 'output/0.jpeg', 'output/1.jpeg', 'output/2.jpeg', 'output/3.jpeg' ]});
 
       })
     
