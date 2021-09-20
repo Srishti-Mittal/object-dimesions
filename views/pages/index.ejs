@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
   <%- include('../partials/head'); %>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="container">
 
 
 
 <main>
-  <div class="jumbotron">
-    <h1>Srishti Mittal</h1>
-    <p>Object Dimensions</p>
-    <p>Please upload an image whose dimensions you want to know</p>
+  <div class="jumbotron cover">
+    <h1 class="font-white">Object Dimension Measure App</h1>
+    <p class="font-white">Please upload an image whose dimensions you want to know</p>
     <form action="/upload" method="post" enctype="multipart/form-data">
       <input type="file" accept="image/*" name="upload" >
       <br>
