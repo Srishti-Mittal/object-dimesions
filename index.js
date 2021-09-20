@@ -26,16 +26,19 @@ app.use(express.static(path.resolve(__dirname,'public')));
 
 app.post('/upload', upload.single('upload'), (req, res) => {
   if(req.file){
-
     console.log("File name",req.file.filename)
     const python = spawn('python', ['object_size.py',`data/`+req.file.filename,4])
-
+    let output;
     python.stdout.on('data', function (data) {
       console.log('Pipe data from python script ...')
-      var limit = data.toString().split("limit")[data.toString().split("limit").length-1]
-      console.log("Limit is ",limit)
-      console.log(data.toString())
+      output+=data
+    })
+    
       python.stdout.on('close', function (code) {
+        var limit = output.toString().split("limit")[output.toString().split("limit").length-1]
+      console.log(output.toString())
+      console.log("Limit is ",limit)
+
         console.log('Closed with code ',code)
         var imgArray = []
         for(var i=0;i<limit;i++){
@@ -45,8 +48,6 @@ app.post('/upload', upload.single('upload'), (req, res) => {
         res.render('pages/image',{data: "output/0.jpeg",imgs:imgArray});
 
       })
-      
-    })
     
     
   }else{

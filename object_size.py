@@ -8,7 +8,7 @@ try:
 	import sys
 	import os
 except Exception as e:
-	print(e)
+	print("Exception",e)
 
 def midpoint(ptA, ptB):
 	return ((ptA[0] + ptB[0]) * 0.5, (ptA[1] + ptB[1]) * 0.5)
