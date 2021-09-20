@@ -10,11 +10,11 @@ This project calculates the size of objects based on a given reference object.It
 ## Live Link
 ## Input Interface
 ## Input
-![Screenshot](input.jpeg)
+![Input](input.jpeg)
 ## Output
-![Screenshot](output.jpeg)
+![Output](output.jpeg)
 ## Flowchart
-![Screenshot](flowchart.jpeg)
+![Flowchart](flowchart.jpeg)
 ## Limitation
 This technique requires the image to be near perfect top-down view of the objects to calculate the accurate results. Otherwise the dimensions of the objects in the image may be distorted.
 ## Submitted by:-
