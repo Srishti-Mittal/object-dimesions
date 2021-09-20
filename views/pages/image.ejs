@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<main>
+  <div class="jumbotron">
+    <h1>Here you go</h1>
+    <p>Dimensions image</p>
+    <div>
+      <% for(var i=0; i<imgs.length; i++) {%>
+        <p>
+          <img src=<%= imgs[i] %> alt="Image" style="max-width: 1000px; max-height: 1000px;">
+        </p>
+      <% } %>
+    </div>
+  </div>
+</main>
+
+</body>
+
+</html>
